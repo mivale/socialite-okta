@@ -3,6 +3,7 @@
 namespace Tequilarapido\Okta;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Socialite\Facades\Socialite;
 
 class OktaServiceProvider extends ServiceProvider
 {
