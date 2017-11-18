@@ -17,4 +17,18 @@ class OktaServiceProvider extends ServiceProvider
             return new SocialiteManager($app);
         });
     }
+
+    /**
+     * Boot the service provider
+     * Call this method in the boot method in AppServiceProvider.php
+     */
+    public static function boot()
+    {
+        Socialite::extend('okta', function ($app) {
+            $config = $app['config']['services.okta'];
+            $provider = Socialite::buildProvider('Tequilarapido\Okta\OktaProvider', $config);
+            $provider->setOktaUrl($config['url']);
+            return $provider;
+        });
+    }
 }
